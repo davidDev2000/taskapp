@@ -1,9 +1,10 @@
 import Input from "./Input"
+import '../styles/index.css'
 
 const Formulario = ({ formInput, handleSubmit, handleInput }) => {
   return (
-    <form className=" bg-black max-w-[300px] rounded-md p-4 flex flex-col justify-center items-center" onSubmit={handleSubmit}>
-      <h1 className="text-3xl bg-black text-gray-300 mb-4">Registrar Tareas</h1>
+    <div className="formContainer">
+    <form className=" bg-black max-w-[300px] ml-2 rounded-md p-4 flex flex-col justify-center items-center formMedia" onSubmit={handleSubmit}>
       <Input
         attr={"text"}
         type={"text"}
@@ -33,6 +34,7 @@ const Formulario = ({ formInput, handleSubmit, handleInput }) => {
       />
       <button className=" bg-gray-300 rounded-xl p-2 text-2xl w-[100%]" type="submit">Agregar</button>
     </form>
+    </div>
   )
 }
 

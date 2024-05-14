@@ -20,8 +20,6 @@ export function handleSubmit(e, task, setTask, formInput, setFormInput) {
 
 
 
-
-
 export function handleInput(e, setFormInput) {
     const { name, value } = e.target;
     setFormInput(prevState => ({
@@ -30,3 +28,6 @@ export function handleInput(e, setFormInput) {
     }));
 }
 
+export function taskCompleted (task) {
+  
+}

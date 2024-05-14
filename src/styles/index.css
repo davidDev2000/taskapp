@@ -1,4 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+body {
+    font-family: "Montserrat", sans-serif;
+    height: 100%;
+}
+
+dialog::backdrop {
+    background-color: black;
+    opacity: 0.8;
+}
+
+@media(max-width: 640px) {
+
+    .taskMedia {
+        display: none;
+    }
+    .formMedia {
+        display: grid;
+        grid-template-columns: repeat(1,2fr);
+    }
+    .formContainer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 20px;
+       
+    }
+    .container {
+        display: flex;
+        flex-direction: column;
+    }
+}
