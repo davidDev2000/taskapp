@@ -5,7 +5,9 @@ const ModalTaskContent = ({task}) => {
 
   return (
     <div>
-        <Task task={task}/>
+        {
+          task.length > 0 ? <Task task={task}/> : <h1 className=" capitalize font-bold text-4xl text-center">No hay tareas que cumplir</h1>
+        }
     </div>
   )
 }

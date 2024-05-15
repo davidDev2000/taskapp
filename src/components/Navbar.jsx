@@ -29,7 +29,7 @@ const Navbar = ({task}) => {
 
         <button 
           onClick={() => {setDialogContent(<ModalTaskContent task={task}/>); toggleDialog()}}>  <FaTasks 
-          className=" text-3xl text-white sm:hidden"
+          className=" text-3xl text-white md:hidden"
         />  
           
         </button>
@@ -45,16 +45,16 @@ const Navbar = ({task}) => {
         </button>
 
         
-      </nav>
-      
-      <div>
-       <dialog ref={dialogRef} className='w-[500px] h-[80%]'>
-         <button className=' flex flex-row-reverse text-3xl w-full' onClick={() => toggleDialog()}>
+      <div className=''>
+       <dialog ref={dialogRef} className=' h-[50%] min-w-[400px] p-2'>
+         <button className=' flex flex-row-reverse text-3xl w-full m-0' onClick={() => toggleDialog()}>
           <IoMdClose/>
          </button>
          {dialogContent} 
         </dialog>
       </div>
+      </nav>
+      
 
 
     </div>

@@ -28,6 +28,3 @@ export function handleInput(e, setFormInput) {
     }));
 }
 
-export function taskCompleted (task) {
-  
-}

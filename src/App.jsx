@@ -2,7 +2,7 @@ import Formulario from './components/Formulario.jsx'
 import TaskBar from './components/TaskBar.jsx'
 import Navbar from './components/Navbar.jsx'
 import {useState} from 'react'
-import { handleSubmit, handleInput, } from './helpers/handlers.js'
+import { handleSubmit, handleInput} from './helpers/handlers.js'
 import './styles/index.css'
 
 function App() {
@@ -14,7 +14,7 @@ function App() {
     observacion:""
   })
   return (
-    <div className='bg-indigo-900 container h-screen w-[100%] border border-red-800'>
+    <div className='bg-indigo-900  h-screen'>
        <Navbar task={task}/>
      <div className=' flex items-center justify-evenly mt-[10%] '>
       <Formulario 
@@ -24,7 +24,7 @@ function App() {
         handleInput={e => handleInput(e, setFormInput)}
       />
 
-      <TaskBar task={task}/>
+      <TaskBar task={task} setTask={setTask}/>
       </div>
     </div>
   )
