@@ -1,10 +1,11 @@
 import TaskBotones from './TaskBotones';
 import { useState } from 'react'
+import { reset, eliminarTarea } from '../helpers/handlers';
 import { FaArrowDownWideShort } from "react-icons/fa6";
 import { IoMdClose } from "react-icons/io"
 
 
-const TaskBin = ({task}) => {
+const TaskBin = ({task, setTask, setHasTask, toggleDialog}) => {
 
   const [showTask, setShowTask] = useState({})
   const toggleTask = (taskId) => {
@@ -14,6 +15,8 @@ const TaskBin = ({task}) => {
     }));
   };
 
+
+    
   return (
     <div>
       {
@@ -30,7 +33,10 @@ const TaskBin = ({task}) => {
                 <IoMdClose className=' text-2xl float-end mr-2 cursor-pointer' onClick={() => {toggleTask(task.id)}}/>
                 <p className=' p-2'> <span className=' italic'>Entregar antes de:</span> <span className=' text-sky-500'>{task.fecha}</span> </p>
                 <p className=' p-2'> <span className=' italic'>Observacion/Nota:</span> <span className=' text-sky-500'>{task.observacion}</span> </p>
-                <TaskBotones task={task}/>
+                <div className=' flex'>
+                <TaskBotones type={"button"} text={"Volaver a Tarea"} className={"w-full bg-green-500 rounded-xl"} onClick={() => {reset(task);toggleTask(task.id);setHasTask(true);toggleDialog()}}/>
+                <TaskBotones type={"button"} text={"Eliminar"} className={"w-full bg-red-600 rounded-xl"} onClick={() => {eliminarTarea(task,setTask,task.id);toggleTask(task.id);setHasTask(true);toggleDialog()}}/>
+                </div>
               </div> 
             }
             

@@ -28,3 +28,23 @@ export function handleInput(e, setFormInput) {
     }));
 }
 
+export const taskCompleted = (task) => (
+  task.complete = true,
+  task.paperBin = false
+)
+ 
+
+export const toBin = (task) => (
+ task.paperBin = true,
+ task.complete = false
+)
+
+export const reset = (task) => {
+  task.complete = false
+  task.paperBin = false
+}
+
+export const eliminarTarea = (task, setTask, taskID) => {
+  const tareasActualizadas =   [task].filter(t => t.id !== taskID)
+  setTask(tareasActualizadas)
+  }

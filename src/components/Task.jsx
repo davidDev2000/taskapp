@@ -1,10 +1,11 @@
 import TaskBotones from './TaskBotones';
 import { useState } from 'react'
+import { taskCompleted, toBin } from '../helpers/handlers';
 import { FaArrowDownWideShort } from "react-icons/fa6";
 import { IoMdClose } from "react-icons/io";
 
 
-const Task = ({task, setTask}) => {
+const Task = ({task, setHasTask}) => {
   // Estado que inicia como objeto para poder seleccionar el id de tarea o algun que otro atibuto
   const [showTask, setShowTask] = useState({})
 
@@ -33,7 +34,10 @@ const Task = ({task, setTask}) => {
                 <IoMdClose className=' text-2xl float-end mr-2 cursor-pointer' onClick={() => {toggleTask(task.id)}}/>
                 <p className=' p-2'> <span className=' italic'>Entregar antes de:</span> <span className=' text-sky-500'>{task.fecha}</span> </p>
                 <p className=' p-2'> <span className=' italic'>Observacion/Nota:</span> <span className=' text-sky-500'>{task.observacion}</span> </p>
-                <TaskBotones task={task} setTask={setTask}/>
+                <div className=' flex'>
+                  <TaskBotones type={"button"} text={"Completar"} className={"w-full bg-green-500 rounded-xl"} onClick={() => {taskCompleted(task);toggleTask(task.id);setHasTask(false)}}/>
+                  <TaskBotones type={"button"} text={"Papelera"} className={"w-full bg-red-500 rounded-xl"} onClick={() => {toBin(task);toggleTask(task.id);setHasTask(false)}}/>
+                </div>
               </div> 
             }
             

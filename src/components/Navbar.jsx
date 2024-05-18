@@ -8,7 +8,7 @@ import Completed from './Completed';
 import TaskBin from './TaskBin';
 
 
-const Navbar = ({task}) => {
+const Navbar = ({task, setTask, hasTask, setHasTask}) => {
 
   const [dialogContent, setDialogContent] = useState(null)
 
@@ -23,6 +23,8 @@ const Navbar = ({task}) => {
       :dialogRef.current.showModal()
   }
 
+  
+
   return (
     <div>
       <nav className=' w-full bg-indigo-700 h-[50px] flex items-center justify-center gap-5'>
@@ -35,12 +37,12 @@ const Navbar = ({task}) => {
         </button>
 
         <button 
-          onClick={() => {setDialogContent(<Completed task={task}/>); toggleDialog()}}> <FaCalendarCheck 
+          onClick={() => {setDialogContent(<Completed task={task}  hasTask={hasTask} setHasTask={setHasTask} toggleDialog={toggleDialog} />); toggleDialog()}}> <FaCalendarCheck 
           className=" text-3xl text-white "/> 
         </button>
 
         <button 
-          onClick={() => {setDialogContent(<TaskBin task={task}/>); toggleDialog()}}> <FaTrashCan 
+          onClick={() => {setDialogContent(<TaskBin task={task} setTask={setTask}  hasTask={hasTask} setHasTask={setHasTask} toggleDialog={toggleDialog} />); toggleDialog()}}> <FaTrashCan 
           className=" text-3xl text-white "/> 
         </button>
 
